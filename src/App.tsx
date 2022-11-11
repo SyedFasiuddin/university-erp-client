@@ -2,6 +2,11 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import NavBar from './components/NavBar.styled';
 import Login from './pages/login';
+import React from "react"
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
+import NavBar from "./components/NavBar.styled"
+import StudentCard from "./components/StudentCard"
+import Login from "./pages/login"
 
 const App: React.FC = () => {
     return (
@@ -13,7 +18,7 @@ const App: React.FC = () => {
                 </Routes>
             </Router>
         </div>
-    );
+    )
 }
 
-export default App;
+export default App
