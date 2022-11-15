@@ -1,3 +1,5 @@
+import { useEffect } from "react"
+import { useNavigate } from "react-router-dom"
 import styled from "styled-components"
 import Login from "../components/LoginForm.styled"
 
@@ -17,6 +19,28 @@ const CenterDiv = styled.div`
 `
 
 const LoginPage = () => {
+    const navigate = useNavigate()
+
+    useEffect(() => {
+        const id = localStorage.getItem("id")
+        if (!id) navigate("/")
+        else {
+            fetch("http://localhost:8000/login/whois", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ id })
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.lecturer) navigate("/lecturers")
+                    else navigate("/students")
+                })
+                .catch(e => console.log(e))
+        }
+    }, [])
+
     return (
         <Page>
             <CenterDiv>
