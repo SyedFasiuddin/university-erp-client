@@ -131,9 +131,9 @@ const LecturersPage = () => {
                     flexDirection: "column"
                 }}>
                     <div style={{ padding: "0.8rem" }}>
-                        usn: {/* student.usn || "-" */}
+                        usn: {lecturer.lecturer_id || "-"}
                         <hr />
-                        name: {/* student.name || "-" */}
+                        name: {lecturer.name || "-"}
                     </div>
                     <CustomButton onClick={() => {
                         setDetailsTab(true)
