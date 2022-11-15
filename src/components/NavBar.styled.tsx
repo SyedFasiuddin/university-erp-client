@@ -1,5 +1,5 @@
-import { NavLink as Link } from 'react-router-dom'
-import styled from 'styled-components'
+import { NavLink as Link } from "react-router-dom"
+import styled from "styled-components"
 
 const Nav = styled.nav`
     background: #000;
@@ -67,7 +67,7 @@ const NavBar = () => {
     return (
         <Nav>
             <NavLink to='/'>
-                <img src='kbnlogo.png' alt="logo" style={{"height": "80px"}}/>
+                <img src='kbnlogo.png' alt="logo" style={{ "height": "80px" }} />
             </NavLink>
             <NavMenu>
                 <NavLink to='/about'>
@@ -90,5 +90,5 @@ const NavBar = () => {
     )
 }
 
-export default NavBar;
+export default NavBar
 

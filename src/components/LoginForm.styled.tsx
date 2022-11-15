@@ -1,7 +1,8 @@
-import { useState } from 'react';
-import Form from 'react-bootstrap/Form';
-import styled from 'styled-components';
-import { NavBtnLink } from './NavBar.styled';
+import { useState } from "react"
+import Form from "react-bootstrap/Form"
+import styled from "styled-components"
+import { NavBtnLink } from "./NavBar.styled"
+import { useNavigate } from "react-router-dom"
 
 const FormCustom = styled(Form)`
     padding: 10px;
@@ -20,13 +21,14 @@ const LocalNavBtnLink = styled(NavBtnLink)`
 const Login = () => {
     const [details, setDetails] = useState({ username: "", password: "" })
     const [msg, setMsg] = useState("")
+    const navigate = useNavigate()
 
     const LogIn = async () => {
         localStorage.setItem("id", details.username)
-        const res = await fetch('http://localhost:8000/login/', {
-            method: 'POST',
+        const res = await fetch("http://localhost:8000/login/", {
+            method: "POST",
             headers: {
-                'Content-type': 'application/json',
+                "Content-type": "application/json",
             },
             body: JSON.stringify({
                 id: details.username,
@@ -39,6 +41,9 @@ const Login = () => {
         } else {
             setMsg(resJson.message)
         }
+
+        if (resJson.lecturer) navigate("lecturers")
+        else navigate("students")
     }
 
     return (
@@ -74,5 +79,5 @@ const Login = () => {
     )
 }
 
-export default Login;
+export default Login
 
