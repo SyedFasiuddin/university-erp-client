@@ -1,16 +1,17 @@
 import React from "react"
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
-import NavBar from "./components/NavBar.styled"
-import StudentCard from "./components/StudentCard"
+import LecturersPage from "./pages/lecturers"
+import StudentPage from "./pages/students"
 import Login from "./pages/login"
 
 const App: React.FC = () => {
     return (
         <div className="App">
             <Router>
-                <NavBar />
                 <Routes>
                     <Route path="/" element={<Login />} />
+                    <Route path="/students" element={<StudentPage />} />
+                    <Route path="/lecturers" element={<LecturersPage />} />
                 </Routes>
             </Router>
         </div>
